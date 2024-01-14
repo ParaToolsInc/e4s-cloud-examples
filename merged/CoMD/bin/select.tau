@@ -1,0 +1,8 @@
+
+BEGIN_EXCLUDE_LIST
+void putAtomInBox(LinkCell *, Atoms *, const int, const int, const real_t, const real_t, const real_t, const real_t, const real_t, const real_t) C
+int getBoxFromCoord(LinkCell *, real_t *) C
+int getBoxFromTuple(LinkCell *, int, int, int) C
+int sortAtomsById(const void *, const void *) C
+END_EXCLUDE_LIST
+
