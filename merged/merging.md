@@ -50,13 +50,13 @@ These have different hashes. My guess is one can be deleted.
 Tests not previously included with every platform need to be validated on all platforms. Directories need to be organized so tests (currently) not functional on all platforms are identified. Eventually all tests should be modified to function on all platforms.
 
 ### All platforms:
-mpi-procname, nalu, osu-benchmarks, petsc-cpu, superlu-dist-cpu and visit. tau is absent from the pcluster directories but it only contains a ppk file so I assume it is valid everywhere. 
+mpi-procname, nalu, osu-benchmarks, petsc-cpu, superlu-dist-cpu and visit. tau is absent from the pcluster directories but it only contains a ppk file so I assume it is valid everywhere. jupyter-notebook looks like it should run anywhere but I'm not sure how to make th UI available.
 
 ### pcluster only:
 CoMD, demo, julia-mpi, machine-learning, matmult
 
-### oddc only: 
-xyce
+### oddc and pcluster-amd only (probably arm too but not yet verified): 
+xyce, lammps, pytorch, tensorflow
 
 ### gpc-oddc only: 
-jupyter-notebook, lammps, openfoam, pytorch, qe, tensorflow
+openfoam (/usr/lib/openfoam/openfoam2306/etc/bashrc not present in pcluster image), qe (fails on pcluster-amd with "Error in routine readpp (1): file ./pseudos/Si.pz-vbc.UPF not readable)" even though the file is present and readable.)
