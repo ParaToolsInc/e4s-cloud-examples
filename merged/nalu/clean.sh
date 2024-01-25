@@ -1,2 +1,2 @@
 #!/bin/bash -e
-rm output.e
+rm -rf output.e
