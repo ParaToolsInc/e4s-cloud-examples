@@ -1,2 +1,2 @@
-#!/bin/bash
-python ./f3.py
+#!/bin/bash -e
+python3 ./f3.py
