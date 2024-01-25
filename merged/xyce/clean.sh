@@ -1,2 +1,2 @@
 #!/bin/bash -e
-rm -f *.prn
+rm -f *.prn slurm*.out
