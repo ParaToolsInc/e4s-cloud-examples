@@ -1,3 +1,7 @@
 To use the ParaTools Chatbot using OpenAI:
+Please go to your account at OpenAI.com and download the secret key. 
+This is needed to connect to OpenAI. Assuming that it is stored in a file with a KEY ending, set the 
+environment variable OPENAI_API_KEY. For e.g., 
+
 export OPENAI_API_KEY=`cat *KEY`
-python3 ./quest.py
+./quest.py
