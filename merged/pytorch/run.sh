@@ -1,2 +1,2 @@
 #!/bin/bash
-python ./f4.py
+python3 ./f4.py
