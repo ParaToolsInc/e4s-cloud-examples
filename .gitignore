@@ -1,4 +1,6 @@
 *.nc
+*.data*
+*.index
 *.e
 *.silo
 *.out
