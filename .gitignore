@@ -3,5 +3,6 @@
 *.silo
 *.out
 *.prn
+*.log
 mpiprocname
 pddrive
