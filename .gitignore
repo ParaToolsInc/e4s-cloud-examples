@@ -4,5 +4,6 @@
 *.out
 *.prn
 *.log
+log.lammps
 mpiprocname
 pddrive
