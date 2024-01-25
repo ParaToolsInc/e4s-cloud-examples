@@ -1,2 +1,2 @@
 #!/bin/bash -e
-rm -rf slurm*.out
+rm -rf slurm*.out log.lammp log.lammps
