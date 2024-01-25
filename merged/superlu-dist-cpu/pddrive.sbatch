@@ -3,6 +3,7 @@
 #SBATCH --nodes=2
 #SBATCH --ntasks=4
 #SBATCH --ntasks-per-node=2
+#SBATCH --exclusive
 #SBATCH -t 0-0:02
 
 spack load superlu-dist@8: ~cuda
