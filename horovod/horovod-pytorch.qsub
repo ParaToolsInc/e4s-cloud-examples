@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -l nodes=2:ppn=36,walltime=5:00
+#PBS -N horovod-pytorch
+
+cd $PBS_O_WORKDIR
+
+export MV2_HOMOGENEOUS_CLUSTER=1
+export MV2_SUPPRESS_JOB_STARTUP_PERFORMANCE_WARNING=1
+
+mpirun python3 src/pytorch_mnist.py --epochs 2 --no-cuda

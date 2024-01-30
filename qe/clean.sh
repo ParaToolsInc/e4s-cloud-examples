@@ -1,2 +1,2 @@
 #!/bin/bash -e
-rm -rf tmp slurm*.out
+rm -rf tmp slurm*.out qe.{o,e}*

@@ -1,2 +1,2 @@
 #!/bin/bash -e
-rm -f *.log
+rm -f *.log bw.{o,e}* bibw.{o,e}* latency.{o,e}*

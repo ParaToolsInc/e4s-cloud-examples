@@ -1,0 +1,5 @@
+#!/bin/bash
+#PBS -l nodes=2:ppn=2,walltime=1:00
+#PBS -N mpiprocname
+cd $PBS_O_WORKDIR
+mpirun ./mpiprocname

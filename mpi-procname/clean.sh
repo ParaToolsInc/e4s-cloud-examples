@@ -1,2 +1,2 @@
 #!/bin/bash -e
-rm -rf slurm*.out mpiprocname
+rm -rf slurm*.out mpiprocname mpiprocname.{o,e}*

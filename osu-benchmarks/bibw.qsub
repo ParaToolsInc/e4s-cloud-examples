@@ -1,0 +1,6 @@
+#!/bin/bash
+#PBS -l nodes=2:ppn=4,walltime=1:00
+#PBS -N bibw
+cd $PBS_O_WORKDIR
+export MV2_RNDV_PROTOCOL=RGET
+mpirun -np 2 -ppn 1 /usr/local/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bibw

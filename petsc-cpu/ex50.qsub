@@ -1,13 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=ex50
-#SBATCH --nodes=2
-#SBATCH --ntasks=4
-#SBATCH --ntasks-per-node=2
-#SBATCH -t 0-0:02
+#PBS -l nodes=2:ppn=2,walltime=2:00
+#PBS -N ex50
+
+cd $PBS_O_WORKDIR
+
 export MV2_HOMOGENEOUS_CLUSTER=1
 export MV2_SUPPRESS_JOB_STARTUP_PERFORMANCE_WARNING=1
 
-srun --mpi=pmi2 ./ex50 \
+mpiexec ./ex50 \
   -da_grid_x 120 \
   -da_grid_y 120 \
   -pc_type lu \
