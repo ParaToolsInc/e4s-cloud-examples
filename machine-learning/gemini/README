@@ -1,0 +1,7 @@
+To use the ParaTools Chatbot using Google Gemini:
+Please go to your account at https://ai.google.dev and download the API key. 
+This is needed to connect to Gemini. Assuming that it is stored in a file with a KEY ending, set the 
+environment variable GOOGLE_API_KEY. For e.g., 
+
+export GOOGLE_API_KEY=`cat *KEY`
+./quest.py
