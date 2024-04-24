@@ -1,0 +1,31 @@
+Building the first Docker container with MPI:
+$ cat Dockerfile
+$ docker build -t myhellompi:latest . 
+$ docker run --rm -it myhellompi:latest 
+# mpirun -np 4 /app/hello
+
+If you wish to push the image to Dockerhub:
+$ docker login -u <your_docker_id>
+password: 
+$ docker push hellompi:latest 
+
+
+Next, let us build our first Singularity container:
+$ cat ubuntu-mpi.def
+$ singularity build --fakeroot ubuntu-mpi.sif ubuntu-mpi.def
+
+This builds a Singularity container called ubuntu-mpi.sif from the definition
+ubuntu-mpi.def 
+$ singularity run ./ubuntu-mpi.sif
+This is what happens when you run the container...
+
+Next, we look at adding the hello.c program to the Singularity container: 
+$ cat hello.def 
+$ singularity build --fakeroot hello.sif hello.def
+$ singularity run ./hello.sif 
+This is what happens when you run the container...
+hello from 1 of 4 on ip-172-31-32-76.us-west-2.compute.internal
+hello from 3 of 4 on ip-172-31-32-76.us-west-2.compute.internal
+hello from 2 of 4 on ip-172-31-32-76.us-west-2.compute.internal
+hello from 0 of 4 on ip-172-31-32-76.us-west-2.compute.internal
+$ cd
