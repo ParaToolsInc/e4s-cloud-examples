@@ -1,0 +1,77 @@
+# Initial filter file, starting point for further adaptation.
+#
+# Considerations:
+#  - check possible wildcard options
+#  - check selected functions for relevancy
+#    (w.r.t. your knowledge of the application)
+#
+# Generated with the following parameters:
+#  - A region has to use at least 1% of the estimated trace buffer.
+#  - A region has to have a time/visits value of less than 1 us.
+#  - A region that is of type USR.
+#
+# The file contains comments for each region providing additional information
+# regarding the respective region.
+# The common prefix for the files is:
+# '/'
+#
+# Please refer to the Score-P user guide for more options on filtering.
+SCOREP_REGION_NAMES_BEGIN
+  EXCLUDE
+
+    ##  Manually added rules
+    # If manual rules are based on demangled names they have to be prepended the
+    # automatically generated ones if they are in the same block of rules, as
+    # the MANGLED keyword switches the pattern matching to be based on the
+    # mangled names.
+
+    # Example use of wildcards to match a subset of regions with full signatures
+    device_*pack_*_buffer(kernel_info_t,?int,*
+
+    # Filter rules can also be used to clean up the calltree from generated
+    # functions and internal calls that hinder more than help when present.
+    *_INTERNAL_*
+
+
+    # type=USR max_buf= 63,576,240 visits=16,628,248, time=   2.19s (  0.4%), time/visit=    0.13us
+    # name='bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+    # file='p/software/juwelsbooster/stages/2022/software/GCCcore/11.2.0/include/c++/11.2.0/bits/basic_string.h'
+    MANGLED _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_
+
+    # type=USR max_buf= 16,354,962 visits= 4,194,104, time=   0.58s (  0.1%), time/visit=    0.14us
+    # name='std::map<int, dim3, std::less<int>, std::allocator<std::pair<int const, dim3> > >::end()'
+    # file='p/software/juwelsbooster/stages/2022/software/GCCcore/11.2.0/include/c++/11.2.0/bits/stl_map.h'
+    MANGLED _ZNSt3mapIi4dim3St4lessIiESaISt4pairIKiS0_EEE3endEv
+
+    # type=USR max_buf= 16,354,884 visits= 4,194,080, time=   0.61s (  0.1%), time/visit=    0.15us
+    # name='std::_Rb_tree<int, std::pair<int const, dim3>, std::_Select1st<std::pair<int const, dim3> >, std::less<int>, std::allocator<std::pair<int const, dim3> > >::lower_bound(int const&)'
+    # file='p/software/juwelsbooster/stages/2022/software/GCCcore/11.2.0/include/c++/11.2.0/bits/stl_tree.h'
+    MANGLED _ZNSt8_Rb_treeIiSt4pairIKi4dim3ESt10_Select1stIS3_ESt4lessIiESaIS3_EE11lower_boundERS1_
+
+    # type=USR max_buf=  9,673,924 visits= 2,557,496, time=   0.63s (  0.1%), time/visit=    0.25us
+    # name='void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char const*>(char const*, char const*, std::forward_iterator_tag)'
+    # file='p/software/juwelsbooster/stages/2022/software/GCCcore/11.2.0/include/c++/11.2.0/bits/basic_string.tcc'
+    MANGLED _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag
+
+    # type=USR max_buf=  9,673,170 visits= 2,557,264, time=   1.90s (  0.4%), time/visit=    0.74us
+    # name='std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, kernel_info_t>, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, kernel_info_t> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, kernel_info_t> > >::lower_bound(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+    # file='p/software/juwelsbooster/stages/2022/software/GCCcore/11.2.0/include/c++/11.2.0/bits/stl_tree.h'
+    MANGLED _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_13kernel_info_tESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE11lower_boundERS7_
+
+    # type=USR max_buf=  9,673,170 visits= 2,557,264, time=   0.33s (  0.1%), time/visit=    0.13us
+    # name='std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, kernel_info_t, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, kernel_info_t> > >::end()'
+    # file='p/software/juwelsbooster/stages/2022/software/GCCcore/11.2.0/include/c++/11.2.0/bits/stl_map.h'
+    MANGLED _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13kernel_info_tSt4lessIS5_ESaISt4pairIKS5_S6_EEE3endEv
+
+    # type=USR max_buf=  9,672,052 visits= 2,556,920, time=   1.19s (  0.2%), time/visit=    0.47us
+    # name='std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, kernel_info_t, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, kernel_info_t> > >::at(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+    # file='p/software/juwelsbooster/stages/2022/software/GCCcore/11.2.0/include/c++/11.2.0/bits/stl_map.h'
+    MANGLED _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13kernel_info_tSt4lessIS5_ESaISt4pairIKS5_S6_EEE2atERSA_
+
+    # type=USR max_buf=  2,657,902 visits=   817,816, time=   0.14s (  0.0%), time/visit=    0.18us
+    # name='update_halo_module_update_boundary_'
+    # file='p/project/training2123/work/schluetter1/TeaLeaf_CUDA_work/update_halo.f90'
+    MANGLED update_halo_module_update_boundary_
+
+
+SCOREP_REGION_NAMES_END
