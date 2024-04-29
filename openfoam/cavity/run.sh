@@ -1,5 +1,5 @@
 #!/bin/bash
-source /usr/lib/openfoam/openfoam2306/etc/bashrc
+spack load --first openfoam
 /bin/rm -f */log*
 ./Allrun
 echo "cd cavity; paraFoam" 
