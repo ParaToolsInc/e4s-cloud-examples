@@ -1,32 +1,3 @@
-Substituting MPI from the container with a system installed MPI using e4s-cl. 
------------------------------------------------------------------------------
-This directory has a Zoltan application that uses the E4S Singularity container.
-Please download a container from https://e4s.io and save it as $HOME/ecp.simg. 
-It uses Trilinos and other packages from this container.
-It is built using mpich packaged in the container but we can substitute it with
-mvapich2 or Intel MPI or OpenMPI. To use mvapich2 or Intel MPI, please run:
+To use e4s-cl:
+./run.sh
 
-% singularity run ~/ecp.simg
-Singularity> ./clean.sh; ./compile.sh; exit
-On the host. To substitute mpich from the container and use mvapich2 (AWS EFA):
-% ./run_e4s-cl_mvapich2.sh
-
-To use Intel MPI (from oneAPI):
-% ./run_e4s-cl_intelmpi.sh
-
-To use Intel MPI (from oneAPI) with unspack'ed source script in ./source.sh:
-% ./run_e4s-cl_intelmpi_unspack.sh
-
-To use OpenMPI using Wi4MPI (CEA, France), we need to use:
-% ./run_e4s-cl_openmpi.sh
-
-To see which OpenMPI it is using, please see:
-/opt/wi4mpi/default/etc/wi4mpi.cfg
-$ grep -i openmpi /opt/wi4mpi/default/etc/wi4mpi.cfg
-OPENMPI_DEFAULT_ROOT="/opt/spack/opt/spack/spack_path_placeholder/spack_path_placeholder/spack_path_placeholder/spack_path_placeholder/s/linux-amzn2-x86_64/gcc-7.3.1/openmpi-4.0.5-4w3n2nvb65dndxni2kyyiir5khtuw4e2"
-
-Using unspack'ed scripts
-------------------------
-The source.sh script has been generated to be equivalent to a spack command using only environment manipulation, making it much faster. Unfortunately, if the spack environment changes (or the image containing it), it will become outdated.
-
-To update it, copy source_unspacked.sh over source.sh and run as usual. The unspack'ed script will run spack in the new environment, cache the results, then overwrite itself. The subsequent executions of the script will benefit from the speed boost.
