@@ -1,0 +1,18 @@
+######## Base group ########
+backend: singularity
+registry: docker.io/ecpe4s/ 
+image: ubuntu20.04
+repull: False
+
+####### Spack group #######
+spack: True
+spack-yaml-file: ./hypre_spack.yaml
+
+With hypre_spack.yaml:
+
+$ cat hypre_spack.yaml 
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - hypre
+  view: true

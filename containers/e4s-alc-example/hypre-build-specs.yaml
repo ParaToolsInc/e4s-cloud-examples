@@ -1,0 +1,11 @@
+######## Base group ########
+backend: singularity
+registry: docker.io/ecpe4s/ 
+image: ubuntu20.04
+repull: False
+
+####### Spack group #######
+spack: True
+spack-packages: 
+  - hypre
+
