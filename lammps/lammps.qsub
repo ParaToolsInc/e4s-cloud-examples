@@ -1,5 +1,6 @@
 #!/bin/bash
 #PBS -l nodes=2:ppn=16,walltime=10:00
+#PBS -l naccesspolicy=singlejob
 #PBS -N lammps
 #PBS -V
 

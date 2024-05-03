@@ -1,5 +1,6 @@
 #!/bin/bash
 #PBS -l nodes=2:ppn=1,walltime=1:00
+#PBS -l naccesspolicy=singlejob
 #PBS -N bw
 cd $PBS_O_WORKDIR
 mpirun /usr/local/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
