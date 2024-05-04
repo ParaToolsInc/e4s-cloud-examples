@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=2:ppn=36,walltime=5:00
+#PBS -l nodes=2:ppn=16,walltime=5:00
 #PBS -l naccesspolicy=singlejob
 #PBS -N horovod-pytorch
 
