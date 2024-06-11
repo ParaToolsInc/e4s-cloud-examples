@@ -1,0 +1,7 @@
+#!/bin/bash
+#PBS -V
+#PBS -l nodes=2:ppn=4,walltime=1:00
+#PBS -l naccesspolicy=singlejob
+#PBS -N hypre-test
+cd $PBS_O_WORKDIR
+e4s-cl mpirun ./hypre_test -P 2 2 2 -n 100 100 100
