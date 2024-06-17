@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -l nodes=2:ppn=1,walltime=2:00
+#PBS -l naccesspolicy=singlejob
+#PBS -N ex19
+
+cd $PBS_O_WORKDIR
+
+export MV2_HOMOGENEOUS_CLUSTER=1
+export MV2_SUPPRESS_JOB_STARTUP_PERFORMANCE_WARNING=1
+
+mpiexec ./ex19 \
+ -snes_monitor \
+ -dm_mat_type mpiaijhipsparse \
+ -dm_vec_type mpihip \
+ -pc_type gamg \
+ -ksp_monitor \
+ -mg_levels_ksp_max_it 1
+ 
