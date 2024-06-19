@@ -1,15 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=TeaLeaf        # Job name
-#SBATCH --partition=develbooster  # Job partition
-#SBATCH --nodes=2                 # Total number of nodes requested
-#SBATCH --gres=gpu:4              # Number of GPUs per node
-#SBATCH --ntasks-per-node=4       # Number of MPI tasks per node (one per GPU)
-#SBATCH --time=00:05:00           # Max. wall-clock time (hh:mm:ss)
-#SBATCH --account=training2123    # Project account to be charged
-#SBATCH --output=%x.%j.out        # Output files
-#SBATCH --error=%x.%j.out
+#SBATCH --job-name=tealeaf
+#SBATCH --nodes=2
+#SBATCH --ntasks=4
+#SBATCH --ntasks-per-node=2
+#SBATCH --exclusive
+#SBATCH -t 0-0:10
+export MV2_HOMOGENEOUS_CLUSTER=1
+export MV2_SUPPRESS_JOB_STARTUP_PERFORMANCE_WARNING=1
 
-
-source $PROJECT_training2123/setup.sh
-module load TAU
-srun tau_exec -cupti -ebs ./tea_leaf
+spack load tau+mpi+cuda
+mpiexec tau_exec -T cupti,mpi -cupti -ebs ./tea_leaf
