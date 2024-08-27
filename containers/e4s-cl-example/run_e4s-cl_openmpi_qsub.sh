@@ -1,5 +1,6 @@
 #!/bin/bash
-module load openmpi
+module unload mpi
+module load mpi/openmpi
 
 #spack load e4s-cl
 
@@ -16,7 +17,7 @@ echo "Using MPI from: ${MPI}"
 
 e4s-cl profile delete \#
 
-e4s-cl init --mpi ${MPI} --profile ompi  --backend singularity --image `pwd`/ubuntu20.04_hypre.sif --source ./source.sh
+e4s-cl init --mpi ${MPI} --launcher_args "-x LD_LIBRARY_PATH=$LD_LIBRARY_PATH" --profile ompi  --backend singularity --image `pwd`/ubuntu20.04_hypre.sif --source ./source.sh
 
 qsub hypre_test_openmpi.qsub
 
