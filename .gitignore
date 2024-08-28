@@ -1,4 +1,5 @@
 *.nc
+*.sif
 *.data*
 *.index
 *.e
