@@ -1,6 +1,6 @@
 #!/bin/bash
-module unload mpi
-module load mpi/openmpi
+module purge
+module load openmpi/5.0.3
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
 PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)
@@ -9,7 +9,7 @@ export PYTHONPATH=$(spack load --sh ${E4SCL} | grep PYTHONPATH | cut -d= -f2)
 export PATH=$(spack location -i ${E4SCL})/bin:$PATH
 which e4s-cl
 
-MPI=$(which mpirun | awk -F'/bin/mpirun' '{print $1}')
+MPI=$(which mpirun | awk -F'/openmpi/mpirun' '{print $1}')
 
 echo "Using MPI from: ${MPI}"
 
