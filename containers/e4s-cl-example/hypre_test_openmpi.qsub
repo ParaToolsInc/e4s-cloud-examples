@@ -4,7 +4,7 @@
 #PBS -l naccesspolicy=singlejob
 #PBS -N hypre-test
 cd $PBS_O_WORKDIR
-module unload mpi
-module load mpi/openmpi
-
+module use /spack/share/spack/modules/linux-ubuntu22.04-x86_64
+module purge
+module load openmpi/5.0.3
 e4s-cl --from mpich mpirun -x LD_LIBRARY_PATH -x PYTHONPATH ./hypre_test -P 2 2 2 -n 100 100 100
