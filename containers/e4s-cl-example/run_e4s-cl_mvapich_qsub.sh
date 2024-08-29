@@ -1,7 +1,5 @@
 #!/bin/bash
-
-module unload mpi
-module load mpi/mvapich2
+module load mvapich2-x-aws
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
 PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)
