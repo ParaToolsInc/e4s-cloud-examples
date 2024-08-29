@@ -1,5 +1,5 @@
 #!/bin/bash
-#module load mvapich2-x-aws
+module load mvapich2-x-aws
 # Uncomment and use the correct mvapich2 module name.
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
