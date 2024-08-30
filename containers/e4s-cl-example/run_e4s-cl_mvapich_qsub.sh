@@ -1,6 +1,7 @@
 #!/bin/bash
-#module load mvapich2-x-aws
-# Uncomment and use the correct mvapich2 module name.
+
+module unload mpi
+module load mpi/mvapich2
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
 PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)
