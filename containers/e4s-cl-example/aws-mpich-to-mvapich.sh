@@ -1,10 +1,8 @@
 #!/bin/bash
-#module load mvapich2-x-aws
-# Uncomment and use the correct mvapich2 module name.
-
+# ln -s /lib/x86_64-linux-gnu/libibverbs.so{.1,}
 spack load e4s-cl
-module unload mpi
-module load mpi/mvapich2
+
+module load mvapich2-x-aws
 
 MPI=$(which mpirun | awk -F'/bin/mpirun' '{print $1}')
 
