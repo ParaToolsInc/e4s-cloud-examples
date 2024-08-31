@@ -1,5 +1,7 @@
 #!/bin/bash
+
 ./azure-setup.sh
+
 module unload mpi
 module load mpi/openmpi
 
@@ -15,6 +17,12 @@ echo "Using MPI from: ${MPI}"
 
 e4s-cl profile delete \#
 
-e4s-cl init --mpi ${MPI} --launcher_args "--mca coll ^hcoll -x LD_LIBRARY_PATH=$LD_LIBRARY_PATH" --profile ompi  --backend singularity --image `pwd`/ubuntu20.04_hypre.sif --source ./source.sh
+e4s-cl init \
+--mpi ${MPI} \
+--launcher_args "--mca coll ^hcoll -x LD_LIBRARY_PATH=$LD_LIBRARY_PATH" \
+--profile ompi \
+--backend singularity \
+--image `pwd`/ubuntu20.04_hypre.sif \
+--source ./source.sh
 
 e4s-cl --from mpich mpirun -x LD_LIBRARY_PATH -x PYTHONPATH ./hypre_test -P 2 2 2 -n 100 100 100
