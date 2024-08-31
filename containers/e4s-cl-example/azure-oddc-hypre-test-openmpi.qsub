@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -V
+#PBS -l nodes=2:ppn=4,walltime=3:00
+#PBS -l naccesspolicy=singlejob
+#PBS -N hypre-test
+cd $PBS_O_WORKDIR
+module unload mpi
+module load mpi/openmpi
+e4s-cl --from mpich mpirun -x LD_LIBRARY_PATH -x PYTHONPATH ./hypre_test -P 2 2 2 -n 100 100 100
