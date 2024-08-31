@@ -9,4 +9,6 @@ cd $PBS_O_WORKDIR
 module unload mpi
 module load mpi/openmpi
 
-e4s-cl --from mpich mpirun -x LD_LIBRARY_PATH -x PYTHONPATH ./hypre_test -P 2 2 2 -n 100 100 100
+export UCX_NET_DEVICES=eth0
+
+e4s-cl --from mpich mpirun -x UCX_NET_DEVICES -x LD_LIBRARY_PATH -x PYTHONPATH ./hypre_test -P 2 2 2 -n 100 100 100
