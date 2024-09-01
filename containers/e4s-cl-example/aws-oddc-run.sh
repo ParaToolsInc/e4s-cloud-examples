@@ -20,7 +20,7 @@ if [ -d /.singularity.d ]; then
   make run
 else
   echo "Running with e4s-cl and mvapich"
-  ./run_e4s-cl_mvapich.sh 
+  ./aws-oddc-mpich-to-mvapich.sh
 #  echo "Running with e4s-cl and openmpi"
 #  ./run_e4s-cl_openmpi.sh 
 fi

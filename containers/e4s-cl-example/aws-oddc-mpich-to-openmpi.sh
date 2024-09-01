@@ -1,5 +1,7 @@
 #!/bin/bash
-module load mvapich2-x-aws
+
+module purge
+spack load openmpi@4.1.2 fabrics=ofi,ucx
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
 PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)
@@ -13,9 +15,14 @@ echo "Using MPI from: ${MPI}"
 
 e4s-cl profile delete \#
 
-e4s-cl init --mpi ${MPI} --profile mvapich --backend singularity --image `pwd`/ubuntu20.04_hypre.sif --source ./source.sh
+e4s-cl init \
+--mpi ${MPI} \
+--launcher_args "--mca coll ^hcoll -x LD_LIBRARY_PATH=$LD_LIBRARY_PATH" \
+--profile ompi \
+--backend singularity \
+--image `pwd`/ubuntu20.04_hypre.sif \
+--source ./source.sh
 
-qsub aws-oddc-hypre-test-mvapich.qsub
+export UCX_NET_DEVICES=ens5
 
-e4s-cl profile list mvapich
-
+e4s-cl --from mpich mpirun -x UCX_NET_DEVICES -x LD_LIBRARY_PATH -x PYTHONPATH ./hypre_test -P 2 2 2 -n 100 100 100
