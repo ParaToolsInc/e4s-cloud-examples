@@ -6,6 +6,7 @@
 #SBATCH --exclusive
 #SBATCH -t 0-0:03
 
+. /usr/share/modules/init/bash
 module purge
 module load openmpi5/5.0.2
 
