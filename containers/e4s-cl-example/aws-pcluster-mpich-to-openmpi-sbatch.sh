@@ -23,6 +23,6 @@ e4s-cl init \
  --image `pwd`/ubuntu20.04_hypre.sif \
  --source ./source.sh
 
-qsub aws-pcluster-hypre-test-openmpi.sbatch
+sbatch aws-pcluster-hypre-test-openmpi.sbatch
 
 e4s-cl profile list ompi
