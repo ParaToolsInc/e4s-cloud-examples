@@ -1,8 +1,13 @@
 #!/bin/bash
 # ln -s /lib/x86_64-linux-gnu/libibverbs.so{.1,}
-spack load e4s-cl
 
 module load mvapich2-x-aws
+
+E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
+PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)
+export PATH=$(spack location -i /$PYTHON_HASH)/bin:$PATH
+export PYTHONPATH="$(spack load --sh ${E4SCL} | grep PYTHONPATH | cut -d';' -f1 | cut -d= -f2)"
+export PATH=$(spack location -i ${E4SCL})/bin:$PATH
 
 MPI=$(which mpirun | awk -F'/bin/mpirun' '{print $1}')
 
