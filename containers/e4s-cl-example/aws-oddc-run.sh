@@ -21,6 +21,6 @@ if [ -d /.singularity.d ]; then
 else
   echo "Running with e4s-cl and mvapich"
   ./aws-oddc-mpich-to-mvapich.sh
-#  echo "Running with e4s-cl and openmpi"
-#  ./run_e4s-cl_openmpi.sh 
+ echo "Running with e4s-cl and openmpi"
+  ./aws-oddc-mpich-to-openmpi.sh
 fi
