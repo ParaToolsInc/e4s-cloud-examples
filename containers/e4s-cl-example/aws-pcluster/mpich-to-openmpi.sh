@@ -1,6 +1,6 @@
 #!/bin/bash
 module purge
-module load openmpi5/5.0.2
+module load openmpi5/5.0.3
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
 PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)

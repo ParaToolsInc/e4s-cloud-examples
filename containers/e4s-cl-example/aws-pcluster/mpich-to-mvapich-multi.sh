@@ -1,7 +1,7 @@
 #!/bin/bash
 
 module purge
-module load openmpi5/5.0.2
+module load mvapich2-x-aws/2.3.7
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
 PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)
@@ -17,12 +17,12 @@ e4s-cl profile delete \#
 
 e4s-cl init \
  --mpi ${MPI} \
- --launcher_args "-x LD_LIBRARY_PATH=$LD_LIBRARY_PATH" \
- --profile ompi \
+ --profile mvapich \
  --backend singularity \
  --image `pwd`/ubuntu20.04_hypre.sif \
  --source ./source.sh
 
-sbatch aws-pcluster-hypre-test-openmpi.sbatch
+sbatch hypre-test-mvapich.sbatch
 
-e4s-cl profile list ompi
+e4s-cl profile list mvapich
+
