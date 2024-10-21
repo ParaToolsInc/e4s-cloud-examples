@@ -1,5 +1,4 @@
 #!/bin/bash
-./azure-setup.sh
 module purge
 module load mvapich2-x-aws/2.3.7
 
