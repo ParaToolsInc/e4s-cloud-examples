@@ -3,7 +3,7 @@
 ./azure-setup.sh
 
 module unload mpi
-module load mpi/openmpi
+module load mpi/mvapich2-2.3.7-1
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
 PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)
@@ -19,12 +19,12 @@ e4s-cl profile delete \#
 
 e4s-cl init \
  --mpi ${MPI} \
- --launcher_args "--mca coll ^hcoll -x LD_LIBRARY_PATH=$LD_LIBRARY_PATH" \
- --profile ompi \
+ --profile mvapich \
  --backend singularity \
  --image `pwd`/ubuntu20.04_hypre.sif \
  --source ./source.sh
 
-qsub azure-oddc-hypre-test-openmpi.qsub
+qsub hypre-test-mvapich.qsub
 
-e4s-cl profile list ompi
+e4s-cl profile list mvapich
+
