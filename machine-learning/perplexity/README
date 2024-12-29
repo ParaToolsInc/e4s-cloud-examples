@@ -1,0 +1,4 @@
+Store the Perplexity.ai API key in E4S_API_KEY
+
+export PERPLEXITY_API_KEY=`cat E4S_API_KEY`
+python ./quest.py
