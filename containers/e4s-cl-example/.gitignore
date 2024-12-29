@@ -1,0 +1,6 @@
+*.sbatch.o*
+*.sbatch.e*
+hypre-test.o*
+hypre-test.e*
+hypre_test
+hypre_test.o
