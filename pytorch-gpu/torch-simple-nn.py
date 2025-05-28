@@ -1,3 +1,6 @@
+## This is sourced from:
+## https://github.com/pytorch/tutorials/blob/main/beginner_source/basics/quickstart_tutorial.py
+
 """
 `Learn the Basics <intro.html>`_ ||
 **Quickstart** ||
