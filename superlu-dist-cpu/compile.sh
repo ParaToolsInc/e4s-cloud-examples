@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
-SUPERLU_DIST_ROOT=$(spack location -i $(spack find --format /{hash} superlu-dist@8: ~cuda | head -1))
+HASH=$(spack find --format /{hash} superlu-dist@8: ~cuda | head -1)
+SUPERLU_DIST_ROOT=$(spack location -i $HASH)
 
 mpicc \
  -I${SUPERLU_DIST_ROOT}/include \
