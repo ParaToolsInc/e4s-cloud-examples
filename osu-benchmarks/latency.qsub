@@ -4,4 +4,4 @@
 #PBS -N latency
 cd $PBS_O_WORKDIR
 export MV2_RNDV_PROTOCOL=RGET
-mpirun -np 2 -ppn 1 /usr/local/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+mpirun osu_latency
