@@ -3,6 +3,8 @@ spack load --first openfoam
 /bin/rm -f */log*
 ./Allrun
 
+# WORKAROUND: Find and remove the adios2 lib path that crashes Paraview.
+export LD_LIBRARY_PATH=$(echo "$LD_LIBRARY_PATH" | tr ':' '\n' | grep -v 'adios2' | paste -sd ':' -)
 
 #Check for paraview in the path or paraview+qt from spack
 command -v paraview &>/dev/null || spack load paraview+qt &>/dev/null
