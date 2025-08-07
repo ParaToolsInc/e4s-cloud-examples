@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-mpiexec -n 4 \
+mpirun -n 4 \
  ./ex50 \
   -da_grid_x 120 \
   -da_grid_y 120 \

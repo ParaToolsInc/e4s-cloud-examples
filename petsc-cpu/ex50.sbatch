@@ -5,10 +5,8 @@
 #SBATCH --ntasks-per-node=2
 #SBATCH --exclusive
 #SBATCH -t 0-0:02
-export MV2_HOMOGENEOUS_CLUSTER=1
-export MV2_SUPPRESS_JOB_STARTUP_PERFORMANCE_WARNING=1
 
-mpiexec ./ex50 \
+mpirun ./ex50 \
   -da_grid_x 120 \
   -da_grid_y 120 \
   -pc_type lu \
