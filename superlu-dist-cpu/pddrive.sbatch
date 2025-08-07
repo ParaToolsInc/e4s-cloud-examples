@@ -6,9 +6,9 @@
 #SBATCH --exclusive
 #SBATCH -t 0-0:02
 
-spack load superlu-dist@8: ~cuda
+HASH=$(spack find --format /{hash} superlu-dist@8: ~cuda | head -1)
+SUPERLU_ROOT=$(spack location -i $HASH)
+export LD_LIBRARY_PATH=$SUPERLU_ROOT/lib:$LD_LIBRARY_PATH
+spack load $HASH
 
-export MV2_HOMOGENEOUS_CLUSTER=1
-export MV2_SUPPRESS_JOB_STARTUP_PERFORMANCE_WARNING=1
-#export MV2_ENABLE_AFFINITY=0
-srun --mpi=pmi2 ./pddrive -r 2 -c 2 g20.rua
+mpirun ./pddrive -r 2 -c 2 g20.rua
