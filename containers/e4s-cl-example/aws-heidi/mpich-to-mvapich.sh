@@ -1,7 +1,7 @@
 #!/bin/bash
 # ln -s /lib/x86_64-linux-gnu/libibverbs.so{.1,}
 
-module load mvapich/4.0-plus
+module load mvapich
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
 PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)

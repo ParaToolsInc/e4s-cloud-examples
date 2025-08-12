@@ -1,7 +1,8 @@
 #!/bin/bash
 
 module purge
-spack load openmpi@4.1.2 fabrics=ofi,ucx
+#spack load openmpi@4.1.2 fabrics=ofi,ucx
+module load openmpi
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
 PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)
