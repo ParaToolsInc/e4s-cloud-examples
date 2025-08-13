@@ -2,6 +2,7 @@
 # ln -s /lib/x86_64-linux-gnu/libibverbs.so{.1,}
 
 module load mvapich
+module load e4s-cl
 
 E4SCL=$(spack find --format /{hash:7} e4s-cl | head -c7)
 PYTHON_HASH=$(spack dependencies -it ${E4SCL} | grep python@ | cut -d' ' -f1)
@@ -13,7 +14,7 @@ MPI=$(which mpirun | awk -F'/bin/mpirun' '{print $1}')
 
 echo "Using MPI from: ${MPI}"
 
-e4s-cl init --mpi ${MPI} --profile mvapich --backend singularity --image `pwd`/ubuntu20.04_hypre.sif --source ./source.sh
+e4s-cl init --mpi ${MPI} --profile mvapich --backend singularity --image `pwd`/ubuntu24.04_hypre.sif --source ./source.sh
 
 e4s-cl mpirun -np 8 ./hypre_test -P 2 2 2 -n 100 100 100 
 
