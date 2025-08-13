@@ -11,6 +11,6 @@ sed -i -e 's/curl https/curl -k https/' singularity.def
 cat singularity.def
 
 ### Building the new image ###
-singularity build --fakeroot ubuntu20.04_hypre.sif singularity.def
+singularity build --fakeroot ubuntu24.04_hypre.sif singularity.def
 
 

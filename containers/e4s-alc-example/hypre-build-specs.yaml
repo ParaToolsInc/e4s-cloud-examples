@@ -1,7 +1,7 @@
 ######## Base group ########
 backend: singularity
 registry: docker.io/ecpe4s/ 
-image: ubuntu20.04
+image: ubuntu24.04
 repull: False
 
 ####### Spack group #######
