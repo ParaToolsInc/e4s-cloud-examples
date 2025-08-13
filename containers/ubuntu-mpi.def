@@ -1,5 +1,5 @@
 BootStrap: docker
-From: ecpe4s/ubuntu20.04
+From: ecpe4s/ubuntu24.04
 
 %runscript
      echo "This is what happens when you run the container..."

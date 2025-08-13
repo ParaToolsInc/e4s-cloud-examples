@@ -1,5 +1,5 @@
 # MPI Dockerfile
-FROM ecpe4s/ubuntu20.04:latest
+FROM ecpe4s/ubuntu24.04:latest
 
 ADD helloworld.c /app/
 

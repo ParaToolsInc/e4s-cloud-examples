@@ -1,5 +1,5 @@
 BootStrap: docker
-From: ecpe4s/ubuntu20.04:latest
+From: ecpe4s/ubuntu24.04:latest
 # See https://sylabs.io/guides/3.7/user-guide/definition_files.html
 %files
 	helloworld.c /helloworld.c
