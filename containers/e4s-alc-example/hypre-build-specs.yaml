@@ -4,8 +4,14 @@ registry: docker.io/ecpe4s/
 image: ubuntu24.04
 repull: False
 
-####### Spack group #######
-spack: True
-spack-packages: 
-  - hypre
+post-system-stage-commands:
+- . /spack/share/spack/setup-env.sh
+- spack mirror add e4s-alc-example-mirror https://cache.e4s.io/e4s-alc-example-1
+- spack buildcache keys -it
+- spack install hypre
+- echo echo > /etc/profile.d/setup-env.sh
+- echo module load hypre >> /etc/bash.bashrc
+- echo 'unset which || true' >> /etc/bash.bashrc
 
+####### Spack group #######
+spack: False
