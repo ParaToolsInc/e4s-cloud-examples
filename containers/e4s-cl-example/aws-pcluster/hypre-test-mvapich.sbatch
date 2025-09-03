@@ -7,6 +7,6 @@
 #SBATCH -t 0-0:03
 
 module purge
-module load mvapich2-x-aws/2.3.7
+module load mvapich
 
 e4s-cl mpirun ./hypre_test -P 2 2 2 -n 100 100 100

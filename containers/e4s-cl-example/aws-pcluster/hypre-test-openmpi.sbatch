@@ -8,6 +8,6 @@
 
 . /usr/share/modules/init/bash
 module purge
-module load openmpi5/5.0.2
+module load openmpi
 
 e4s-cl --from mpich mpirun -x LD_LIBRARY_PATH -x PYTHONPATH ./hypre_test -P 2 2 2 -n 100 100 100
