@@ -2,7 +2,7 @@
 
 # First check if ubuntu20.04-hypre.sh container exists
 if [ ! -r  ../../e4s-alc-example/ubuntu24.04_hypre.sif ]; then
-	echo "Building ubuntu20.04_hypre.sif using e4s-alc"
+	echo "Building ubuntu24.04_hypre.sif using e4s-alc"
 	cd ../../e4s-alc-example; ./run.sh; cd -
 fi
 if [ ! -r ./hypre_test ]; then
