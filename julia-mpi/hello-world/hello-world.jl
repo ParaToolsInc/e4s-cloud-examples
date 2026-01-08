@@ -1,7 +1,12 @@
 # examples/01-hello.jl
 using MPI
 MPI.Init()
-
 comm = MPI.COMM_WORLD
-print("Hello world, I am rank $(MPI.Comm_rank(comm)) of $(MPI.Comm_size(comm))\n")
+rank = MPI.Comm_rank(comm)
+size = MPI.Comm_size(comm)
+
+# Get the hostname/processor name
+node_name = MPI.Get_processor_name()
+
+print("Hello world, I am rank $rank of $size running on $node_name\n")
 MPI.Barrier(comm)
