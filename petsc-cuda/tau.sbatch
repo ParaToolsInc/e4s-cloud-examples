@@ -6,11 +6,6 @@
 #SBATCH --exclusive
 #SBATCH -t 0-0:06
 
-export MV2_HOMOGENEOUS_CLUSTER=1
-export MV2_SUPPRESS_JOB_STARTUP_PERFORMANCE_WARNING=1
-
-spack load tau+mpi+cuda
-
 mpiexec tau_exec -T cupti,mpi -cupti -ebs ./bench_kspsolve \
   -n 128 \
   -its 1000 \
