@@ -40,9 +40,20 @@ int main(int argc, char **argv)
   KSP         ksp;
   DM          da;
   UserContext user;
+  PetscMPIInt rank, size;
+  char        hostname[MPI_MAX_PROCESSOR_NAME];
+  int         hostname_len;
 
   PetscFunctionBeginUser;
   PetscCall(PetscInitialize(&argc, &argv, (char *)0, help));
+
+  MPI_Comm_rank(PETSC_COMM_WORLD, &rank);
+  MPI_Comm_size(PETSC_COMM_WORLD, &size);
+  MPI_Get_processor_name(hostname, &hostname_len);
+
+  PetscCall(PetscSynchronizedPrintf(PETSC_COMM_WORLD, "MPI rank %d out of %d running on host %s\n", rank, size, hostname));
+  PetscCall(PetscSynchronizedFlush(PETSC_COMM_WORLD, PETSC_STDOUT));
+
   PetscCall(KSPCreate(PETSC_COMM_WORLD, &ksp));
   PetscCall(DMDACreate2d(PETSC_COMM_WORLD, DM_BOUNDARY_NONE, DM_BOUNDARY_NONE, DMDA_STENCIL_STAR, 11, 11, PETSC_DECIDE, PETSC_DECIDE, 1, 1, NULL, NULL, &da));
   PetscCall(DMSetFromOptions(da));
