@@ -1,0 +1,11 @@
+This is a demo of the NVIDIA BioNeMo to show how it can predict the shape of a protein. 
+The fold_demo.py example has a protein sequence. 
+
+python ./fold_demo.py
+will run the example on the GPU and output the PDB files in the fold_output directory. 
+Please make sure you have write permissions in the current directory where you run this example. 
+Open up a web browser and go to https://molstar.org/viewer
+Click on Load -> fold_output/T1031_run_01.pdb -> click apply and see the shape of the protein. 
+
+To test the version of BioNeMo used: 
+python ./bionemo_version.py
